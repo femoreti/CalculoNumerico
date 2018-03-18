@@ -1,0 +1,4 @@
+Basicamente o algoritmo converte a entrada em um número na base 10, depois disso ele converte para a base desejada.
+Para converter este numero na base 10, nós comparamos a distancia do char de entrada com o valor dele no computador e somamos a uma variavel de numero decimal, a soma de todos estes caracteres retorna o valor convertido para um numero em base 10.
+
+Para converter para outra base utilizei o metodo da divisao, onde guardamos o resto e depois remontamos ele para ser exibido.
