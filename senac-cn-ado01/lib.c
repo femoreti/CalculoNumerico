@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <math.h>
 #include "lib.h"
 
 int ConvertToDecimal(char c) 
@@ -42,7 +41,6 @@ char *ConvertToBaseM(long int decimalValue, int newBase, char alphabet[])
     {
         outValue[j] = newString[sizeStr- (j+1)];
     }
-    printf("%s\n", outValue);
 
     return outValue;
 }

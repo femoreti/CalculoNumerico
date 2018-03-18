@@ -13,18 +13,18 @@ int main(int argc, char *argv[])
     char alphabet[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     char* enterValue = argv[1];
-    long int initialValue = atoi(enterValue);
-
-    if(atoi(enterValue) == 0)
-    {
-        printf("0\n");
-        exit(0);
-    }
     int baseN = atoi(argv[2]);
     int baseM = atoi(argv[3]);
 
     long int limit = MakePow(2, 32);
-    if(initialValue < 0 || initialValue > limit)
+    long int valueInDecimal = ConvertToBase10(enterValue, baseN);
+
+    if(valueInDecimal == 0)
+    {
+        printf("0\n");
+        exit(0);
+    }
+    if(valueInDecimal < 0 || valueInDecimal > limit)
     {
         exit(1);
     }
@@ -36,9 +36,6 @@ int main(int argc, char *argv[])
     {
         exit(1);
     }
-
-    int valueInDecimal = ConvertToBase10(enterValue, baseN);
-    ConvertToBaseM(valueInDecimal, baseM, alphabet);
-
+    printf("%s\n", ConvertToBaseM(valueInDecimal, baseM, alphabet));
     exit(0);
 }
