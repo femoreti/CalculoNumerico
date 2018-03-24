@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 500
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "lib.h"
@@ -15,7 +17,7 @@ int main()
         double rad = i*(PI/180);
         double absolutError = fabs(sin(rad) - seno(rad));
         double relativeError = fabs(absolutError / seno(rad));
-        fprintf(fp, "%f\t%f\t%f\t%f\n", rad, seno(rad), absolutError, relativeError);
+        fprintf(fp, "%d\t%f\t%f\t%f\n", i, seno(rad), absolutError, relativeError);
     }
     fclose(fp);
 
@@ -26,7 +28,7 @@ int main()
         double rad = i*(PI/180);
         double absolutError = fabs(cos(rad) - cosseno(rad));
         double relativeError = fabs(absolutError / cosseno(rad));
-        fprintf(fp, "%f\t%f\t%f\t%f\n", rad, cosseno(rad), absolutError, relativeError);
+        fprintf(fp, "%d\t%f\t%f\t%f\n", i, cosseno(rad), absolutError, relativeError);
     }
 
     fclose(fp);
