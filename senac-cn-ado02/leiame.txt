@@ -1,0 +1,11 @@
+trig.c
+
+Na função main iniciamos o arquivo fp, e limpamos os dados caso já exista um arquivo seno.dat e cosseno.dat, após isso é realizado um for de 0 a 4pi, ou 0 a 720 graus, para cara grau é realizado o calculo de seu seno e cosseno e armazenado em seus respectivos .dat, Ao fim do processo os gráficos são gerados pelo gnuplot.
+
+lib.h
+
+Na lib.h é definido um valor de PI, e inicializado os métodos.
+
+lib.c
+
+na função "seno" é realizado o método de taylor com N indo de 0 a 15, assim como na função "cosseno". Há também metodos de potencia (MakePow) e método de Fatorial (fat). O método de taylor consiste em um somatório de N vezes para garantir a melhor precisão.
