@@ -32,7 +32,6 @@ int main()
     }
 
     fclose(fp);
-    free(fp);
 
     FILE *gnuplot = popen("gnuplot -persistent", "w");
     fprintf(gnuplot, "%s\n%s", "set terminal png size 400,300\nset output 'seno.png'", "plot 'seno.dat'\n");
