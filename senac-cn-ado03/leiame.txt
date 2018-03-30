@@ -1,0 +1,10 @@
+euler.c
+Realiza as chamadas de cada método para executar o limite em float, double e long double.
+
+lib.c
+Cada método contido realiza um loop de 1 a 20, onde é gerado um valor N que é 10^i, onde i é o valor do loop.
+
+após isso é realizado a formula dada, o resultado de cada entrada é plotado no gnuplot e seu gráfico é gerado ao fim da execução. Isso para cada um dos 3 métodos realizando assim um grafico de Float, Double e Long Double.
+
+lib.h
+Inicializa os métodos.
