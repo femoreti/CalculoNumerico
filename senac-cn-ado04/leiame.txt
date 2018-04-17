@@ -1,0 +1,15 @@
+bissec.f95:
+
+Se calcula o intervalo para o valor de entrada, depois o codigo realiza um loop até que atinja o total escolhido de repetições (1000) ou até que atinja a condição de parada.
+Dentro da repetição se calcula o ponto médio do intervalo, caso não seja uma condição de parada um dos intervalos é modificado e isso se repete até que atinja a condição.
+
+newton.f95:
+
+É escolhido um valor inicial, no caso é o mesmo valor de entrada
+É realizado um loop de 1000 iterações ou até que a condição de parada seja alcançada. No loop é calculado o valor da raiz, isso se repete até que uma das condições seja atingida.
+
+secante.f95:
+
+O Valor inicial é o mesmo da entrada.
+O codigo realiza um loog até que uma das condições de parada sejam atingidas.
+As condições de paradas são: ou o valor de p1² é igual ao valor de input, ou o valor absoluto de p1 - p é menor que a tolerância escolhida.
