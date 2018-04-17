@@ -3,7 +3,9 @@ IMPLICIT NONE
 
     REAL :: input, sqr, errAprox
     INTEGER :: count, maxIterations
-    READ(*,*) input
+    CHARACTER(len = 32) :: arg
+    CALL get_command_argument(1, arg)
+    READ (arg, *) input
     IF (input < 0) THEN
         PRINT *, "Input precisa ser maior que 0"
         STOP 1

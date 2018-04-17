@@ -3,7 +3,9 @@ PROGRAM secante
 
     INTEGER :: maxIteration = 1000, i
     DOUBLE PRECISION :: input, p0, p, p1, errorValue = 1E-6
-    READ(*, *) input
+    CHARACTER(len = 32) :: arg
+    CALL get_command_argument(1, arg)
+    READ (arg, *) input
 
     p0 = input
     p = input - 1.0

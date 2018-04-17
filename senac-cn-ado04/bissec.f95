@@ -3,7 +3,9 @@ IMPLICIT NONE
 
     REAL :: lowerBound, upperBound, errAprox, input, root
     INTEGER :: maxIterations, count
-    READ (*, *) input
+    CHARACTER(len = 32) :: arg
+    CALL get_command_argument(1, arg)
+    READ (arg, *) input
     IF (input < 0) THEN
         PRINT *, "Input must be greater then 0"
         STOP 1
