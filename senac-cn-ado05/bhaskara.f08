@@ -3,8 +3,8 @@ PROGRAM bhaskara
     IMPLICIT NONE
 
     INTEGER :: i
-    DOUBLE PRECISION :: inputs(0:2), delta, x1, x2, xi
     CHARACTER(len = 32) :: arg, x_real, x_real2, x_imaginario
+    DOUBLE PRECISION :: inputs(0:2), delta, x1, x2, xi
 	
     DO i = 1, 3 
         CALL get_command_argument(i, arg)
@@ -35,15 +35,10 @@ PROGRAM bhaskara
     END IF
     
     CONTAINS !implementa metodos
-    FUNCTION CalculaDelta(a, b, c) RESULT(output)
-        DOUBLE PRECISION, intent(in) :: a, b, c
-        DOUBLE PRECISION :: output
-        output = (b ** 2) - (4 * a * c)
-    END FUNCTION
-
     FUNCTION strReplace(str) RESULT(output)
         CHARACTER(len = 32), intent(in) :: str
         CHARACTER(len = 32) :: output
+	
         IF(str(1:1) == ".") THEN
             output = "0" // trim(str)
         ELSE IF(str(1:2) == "-.") THEN
@@ -51,6 +46,13 @@ PROGRAM bhaskara
         ELSE
             output = str
         END IF 
+    END FUNCTION
+    
+    FUNCTION CalculaDelta(a, b, c) RESULT(output)
+        DOUBLE PRECISION, intent(in) :: a, b, c
+        DOUBLE PRECISION :: output
+	
+        output = (b ** 2) - (4 * a * c)
     END FUNCTION
 
 END PROGRAM
