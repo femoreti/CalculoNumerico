@@ -1,12 +1,11 @@
 PROGRAM rank
 IMPLICIT NONE
 	INTEGER :: matrixSize
-	INTEGER :: i , j , iterations
+	INTEGER :: i , j
 	
 	!matriz A(n,n), matriz S (n,1), resultado(n,1)
 	DOUBLE PRECISION, DIMENSION(:,:), ALLOCATABLE :: A, S, CurrentX, lastX
 	DOUBLE PRECISION :: stopValue = 1E-5
-	DOUBLE PRECISION :: temporaryValue
 	DOUBLE PRECISION :: m = 0.5
 
 	!Temporario, modificar quando vir do python
@@ -104,9 +103,6 @@ IMPLICIT NONE
 		CurrentX(i,1) = 1.0 / matrixSize
 	end do
 	
-	
-	iterations = 0
-	temporaryValue = 1
 	! Multiplica a matriz A pela matriz S ate a precisao ser atingida
 	do while (ABS(lastX(1,1) - CurrentX(1,1)) > stopValue)
 		lastX = CurrentX
@@ -117,18 +113,12 @@ IMPLICIT NONE
 		do i= 1, matrixSize
 			CurrentX(i, 1) = CurrentX(i, 1) + S(i, 1)
 		end do
-		
-		!A = matmul(A,A)
-	    	!CurrentX = matmul(A,S)
-		iterations = iterations + 1
 	end do
 
 	!Imprime os resultados dos pesos de cada nó do grafo
 	do i = 1, matrixSize
 		print *, CurrentX(i, 1)
 	end do
-
-	print *, iterations
 	
 	!remove da memoria as matrizes criadas
 	deallocate(A)
