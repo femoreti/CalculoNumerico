@@ -26,9 +26,9 @@ IMPLICIT NONE
 	A(1,5) = 0
 	A(1,6) = 0
 	A(1,7) = 0
-	A(1,8) = 1/2
+	A(1,8) = 1.0/2
 	
-	A(2,1) = 1/2
+	A(2,1) = 1.0/2
 	A(2,2) = 0
 	A(2,3) = 0
 	A(2,4) = 0
@@ -37,17 +37,17 @@ IMPLICIT NONE
 	A(2,7) = 0
 	A(2,8) = 0
 
-	A(3,1) = 1/2
-	A(3,2) = 1/2
+	A(3,1) = 1.0/2
+	A(3,2) = 1.0/2
 	A(3,3) = 0
 	A(3,4) = 0
 	A(3,5) = 0
 	A(3,6) = 0
 	A(3,7) = 0
-	A(3,8) = 1/2
+	A(3,8) = 1.0/2
 
 	A(4,1) = 0
-	A(4,2) = 1/2
+	A(4,2) = 1.0/2
 	A(4,3) = 0
 	A(4,4) = 0
 	A(4,5) = 0
@@ -58,7 +58,7 @@ IMPLICIT NONE
 	A(5,1) = 0
 	A(5,2) = 0
 	A(5,3) = 0
-	A(5,4) = 1/2
+	A(5,4) = 1.0/2
 	A(5,5) = 0
 	A(5,6) = 0
 	A(5,7) = 0
@@ -66,19 +66,19 @@ IMPLICIT NONE
 
 	A(6,1) = 0
 	A(6,2) = 0
-	A(6,3) = 1/2
-	A(6,4) = 1/2
-	A(6,5) = 1
+	A(6,3) = 1.0/2
+	A(6,4) = 1.0/2
+	A(6,5) = 1.0
 	A(6,6) = 0
 	A(6,7) = 0
 	A(6,8) = 0
 
 	A(7,1) = 0
 	A(7,2) = 0
-	A(7,3) = 1/2
+	A(7,3) = 1.0/2
 	A(7,4) = 0
 	A(7,5) = 0
-	A(7,6) = 1
+	A(7,6) = 1.0
 	A(7,7) = 0
 	A(7,8) = 0
 
@@ -88,7 +88,7 @@ IMPLICIT NONE
 	A(8,4) = 0
 	A(8,5) = 0
 	A(8,6) = 0
-	A(8,7) = 1
+	A(8,7) = 1.0
 	A(8,8) = 0
 	
 	!(1-m) * A
@@ -120,7 +120,7 @@ IMPLICIT NONE
 		
 		!A = matmul(A,A)
 	    	!CurrentX = matmul(A,S)
-		!iterations = iterations + 1
+		iterations = iterations + 1
 	end do
 
 	!Imprime os resultados dos pesos de cada nó do grafo
@@ -128,7 +128,7 @@ IMPLICIT NONE
 		print *, CurrentX(i, 1)
 	end do
 
-	!print *, iterations
+	print *, iterations
 	
 	!remove da memoria as matrizes criadas
 	deallocate(A)
