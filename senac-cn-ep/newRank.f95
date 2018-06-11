@@ -1,7 +1,8 @@
 SUBROUTINE init(matrixIn, matrixSize)
 IMPLICIT NONE
 	Integer :: matrixSize
-	INTEGER :: i , j
+	INTEGER :: i, j, totalPrinted, currentPage
+	DOUBLE PRECISION :: greaterValue
 	
 	!matriz A(n,n), matriz S (n,1), resultado(n,1)
 	DOUBLE PRECISION, DIMENSION(:,:) :: matrixIn
@@ -28,7 +29,7 @@ IMPLICIT NONE
 	!inicia a matriz S e a matriz de resultado com tamanho (n,1)
 	do i = 1, matrixSize
 		S(i,1) = m * (1.0 / matrixSize)
-		CurrentX(i,1) = 1.0 / matrixSize
+		CurrentX(i,1) = 1 !iniciar como um para nao dar erro de precisao logo no inicio
 	end do
 	
 	! Multiplica a matriz A pela matriz S ate a precisao ser atingida
@@ -42,11 +43,26 @@ IMPLICIT NONE
 			CurrentX(i, 1) = CurrentX(i, 1) + S(i, 1)
 		end do
 	end do
+	
+	totalPrinted = 0
+	
+	!Imprime os resultados de acordo com sua importancia
+	do while(totalPrinted < matrixSize)
+		greaterValue = 0
+		currentPage = 0
+		do i = 1, matrixSize
+			if (CurrentX(i, 1) > 0 .AND. CurrentX(i, 1) > greaterValue) then
+				greaterValue = CurrentX(i, 1)
+				currentPage = i
+			end if
+		end do
 
-	!Imprime os resultados dos pesos de cada nó do grafo
-	do i = 1, matrixSize
-		print *, CurrentX(i, 1)
+		CurrentX(currentPage, 1) = -1
+		totalPrinted = totalPrinted + 1
+		print *, totalPrinted,"- Pagina",currentPage,"--- peso",greaterValue
 	end do
+	
+	
 	
 	!remove da memoria as matrizes criadas
 	deallocate(A)
