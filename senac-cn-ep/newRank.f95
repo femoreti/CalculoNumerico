@@ -46,6 +46,7 @@ IMPLICIT NONE
 	
 	totalPrinted = 0
 	
+	Print *, "Iteração"," -", " Pagina", " ---", " Peso"
 	!Imprime os resultados de acordo com sua importancia
 	do while(totalPrinted < matrixSize)
 		greaterValue = 0
