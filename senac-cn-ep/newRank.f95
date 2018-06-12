@@ -8,7 +8,7 @@ IMPLICIT NONE
 	DOUBLE PRECISION, DIMENSION(:,:) :: matrixIn
 	DOUBLE PRECISION, DIMENSION(:,:), ALLOCATABLE :: A, S, CurrentX, lastX
 	DOUBLE PRECISION :: stopValue = 1E-5
-	DOUBLE PRECISION :: m = 0.5
+	DOUBLE PRECISION :: m = 0.15
 
 	!Define os tamanhos das matrizes
 	allocate (A(matrixSize, matrixSize))
